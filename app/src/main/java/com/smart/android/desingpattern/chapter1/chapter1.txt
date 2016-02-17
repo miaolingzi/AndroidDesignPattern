@@ -1,0 +1,8 @@
+单一职责原则
+SRP:Single Responsibility Principle
+SRP定义:就一个类而言,应该仅有一个引起它变化的原因.简单来说,一个类中应该是一组相关性很高的函数,数据的封装.
+开闭原则
+OCP:Open Close Principle
+OCP定义:软件中的对象(类,模块,函数等)应该对于扩展是开放等,但是,对于修改是封闭等.
+
+
