@@ -1,8 +1,12 @@
 package com.smart.android.desingpattern.chapter1.chapter1_1_2;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.widget.ImageView;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -46,7 +50,14 @@ public class ImageLoader {
     //下载图片
     public Bitmap downloadImage(String imageUrl) {
         Bitmap bitmap = null;
-
+        try {
+            URL url = new URL(imageUrl);
+            final HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            bitmap = BitmapFactory.decodeStream(conn.getInputStream());
+            conn.disconnect();
+        } catch (Exception e) {
+            Log.e("ImageLoader", "Exception", e);
+        }
         return bitmap;
     }
 }
